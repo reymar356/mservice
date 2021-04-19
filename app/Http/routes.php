@@ -18,6 +18,14 @@ $app->get('/', function () use ($app) {
 
 
 $app ->group(['prefix'=> 'api' ,'namespace'=> 'App\Http\Controllers'], function($app){
-
+    
     $app->get('users', 'BlogController@getUsers');
 });
+
+
+$app->get('/users', 'BlogController@index');
+$app->post('/users', 'BlogController@add');
+$app->get('/users/{id}', 'BlogController@show');
+$app->put('/users/{id}', 'BlogController@update');
+$app->patch('/users/{id}', 'BlogController@update');
+$app->delete('/users/{id}', 'BlogController@delete');
